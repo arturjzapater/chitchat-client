@@ -1,13 +1,16 @@
 import React from 'react'
-import InputForm from '../InputForm/InputForm'
+import type { RouteComponentProps } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import type { State } from '../../types/State'
+import Login from '../Login/Login'
 
-const Home: React.FC = () => {
+const Home: React.FC<RouteComponentProps> = ({ history }) => {
+  const nickname = useSelector((state: State) => state.nickname)
+
+  if (nickname !== '') history.push('/chatroom')
+
   return (
-    <InputForm
-      onSubmit={() => {}}
-      submit="Connect"
-      required={true}
-    />
+    <Login />
   )
 }
 
