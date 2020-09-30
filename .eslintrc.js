@@ -1,6 +1,7 @@
 module.exports = {
   env: {
-    browser: true
+    browser: true,
+    commonjs: true
   },
   extends: [
     'standard',
@@ -12,11 +13,16 @@ module.exports = {
     ecmaFeatures: {
       jsx: true
     },
-    ecmaVersion: 2020
+    ecmaVersion: 2020,
+    sourceType: 'module'
   },
   settings: {
     react: {
       version: 'detect'
     }
+  },
+  rules: {
+    'no-use-before-define': 'off',
+    '@typescript-eslint/no-use-before-define': 'warn'
   }
 }
