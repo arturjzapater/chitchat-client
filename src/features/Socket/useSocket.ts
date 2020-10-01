@@ -7,7 +7,12 @@ import {
 } from './SocketActions'
 import type { Message, State } from '../../types/State'
 
-const useSocket = (onLogout: CallableFunction): SocketIOClient.Socket | undefined => {
+interface SocketInterface {
+  socket: SocketIOClient.Socket,
+  sendMessage: CallableFunction
+}
+
+const useSocket = (onLogout: CallableFunction): SocketInterface | null => {
   const [socket, setSocket] = useState<SocketIOClient.Socket>()
   const nickname = useSelector((state: State) => state.nickname)
   const dispatch = useDispatch()
@@ -59,13 +64,14 @@ const useSocket = (onLogout: CallableFunction): SocketIOClient.Socket | undefine
     }
   }, [])
 
-  return socket
+  if (!socket) return null
 
-  // return {
-  //   channel,
-  //   sendMessage: message => channel.push('new_message', { message }),
-  //   setTyping: typing => channel.push('user_typing', { typing })
-  // }
+  return {
+    socket,
+    sendMessage: (message: string):void => {
+      socket.emit('new message', message)
+    }
+  }
 }
 
 export default useSocket

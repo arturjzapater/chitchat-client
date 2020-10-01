@@ -1,4 +1,4 @@
-import type { Action } from '../../types/Action'
+import type { Action, MessageAction } from '../../types/Action'
 import type { Message } from '../../types/State'
 
 export const logout = (message: string): Action => ({
@@ -8,7 +8,7 @@ export const logout = (message: string): Action => ({
   }
 })
 
-export const receiveMessage = (payload: Message): Action => ({
+export const receiveMessage = (payload: Message): MessageAction => ({
   type: 'RECEIVE_MESSAGE',
   payload
 })

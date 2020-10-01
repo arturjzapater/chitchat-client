@@ -17,8 +17,9 @@ const handlers: Record<string, CallableFunction> = {
   }),
   LOGOUT: (state: State, { message }: Payload): State => ({
     ...state,
-    nickname: '',
     infoMessage: message,
+    messages: [],
+    nickname: '',
     userList: []
   }),
   RECEIVE_MESSAGE: (state: State, payload: Message): State => ({

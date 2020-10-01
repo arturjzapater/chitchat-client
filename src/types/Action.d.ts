@@ -5,4 +5,8 @@ interface Action {
   payload: Record<string, unknown> | Message
 }
 
-export type { Action }
+interface MessageAction extends Action {
+  payload: Message
+}
+
+export type { Action, MessageAction }

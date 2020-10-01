@@ -1,7 +1,8 @@
 export interface Message {
   user: string,
   text: string,
-  timestamp: number
+  timestamp: number,
+  type: 'user' | 'system'
 }
 
 export interface UserItem {
