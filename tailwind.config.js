@@ -6,5 +6,12 @@ module.exports = {
   purge: [
     './src/**/*.js',
     './src/**/*.css'
-  ]
+  ],
+  theme: {
+    extend: {
+      height: {
+        'v-75': '75vh'
+      }
+    }
+  }
 }

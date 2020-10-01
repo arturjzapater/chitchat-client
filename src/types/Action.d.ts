@@ -1,8 +1,8 @@
-import type { Message } from './State'
+import type { Message, UserItem } from './State'
 
 interface Action {
   type: string,
-  payload: Record<string, unknown> | Message
+  payload: Record<string, unknown> | Message | UserItem[]
 }
 
 interface MessageAction extends Action {

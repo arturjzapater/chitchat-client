@@ -1,5 +1,5 @@
 import type { Action } from './types/Action'
-import type { Message, State } from './types/State'
+import type { Message, State, UserItem } from './types/State'
 
 type Payload = Record<string, string>
 
@@ -21,6 +21,10 @@ const handlers: Record<string, CallableFunction> = {
     messages: [],
     nickname: '',
     userList: []
+  }),
+  UPDATE_USERLIST: (state: State, payload: UserItem[]): State => ({
+    ...state,
+    userList: payload
   }),
   RECEIVE_MESSAGE: (state: State, payload: Message): State => ({
     ...state,

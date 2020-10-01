@@ -3,9 +3,10 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {
   logout,
-  receiveMessage
+  receiveMessage,
+  updateUserList
 } from './SocketActions'
-import type { Message, State } from '../../types/State'
+import type { Message, State, UserItem } from '../../types/State'
 
 interface SocketInterface {
   socket: SocketIOClient.Socket,
@@ -31,34 +32,12 @@ const useSocket = (onLogout: CallableFunction): SocketInterface | null => {
       dispatch(receiveMessage(payload))
     })
 
+    socket.on('update userlist', (payload: UserItem[]) => {
+      dispatch(updateUserList(payload))
+    })
+
     setSocket(socket)
 
-    // phoenixChannel.join()
-    //   .receive('ok', res => {
-    //     setChannel(phoenixChannel)
-    //     console.log('Joined successfully!', res)
-    //   })
-    //   .receive('error', res => console.log('Oopsies!', res))
-
-    // phoenixChannel.on('new_message', ({ message, user }) => {
-    //   dispatch(receiveMessage(message, user))
-    // })
-
-    // phoenixChannel.on('user_joined', ({ user }) => {
-    //   dispatch(systemMessage(`${user} joined the conversation`))
-    // })
-
-    // phoenixChannel.on('user_left', ({ user }) => {
-    //   dispatch(systemMessage(`${user} left the conversation`))
-    // })
-
-    // phoenixChannel.on('presence_state', state => {
-    //   dispatch(presenceState(state))
-    // })
-
-    // phoenixChannel.on('presence_diff', diff => {
-    //   dispatch(presenceDiff(diff))
-    // })
     return () => {
       socket.disconnect()
     }

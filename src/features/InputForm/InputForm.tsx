@@ -45,12 +45,12 @@ const InputForm: React.FC<InputFormProps> = ({
           onBlur={onBlur}
           onChange={handleChange}
           onFocus={onFocus}
-          className="flex-grow"
+          className="flex-grow bg-gray-100 border border-gray-100 focus:border-gray-500 px-2 py-1"
         />
         {error && <span className="text-red-500 text-xs italic">Please, fill this field.</span>}
       </div>
       <button
-        className="py-1 px-4 m-2 font-semibold"
+        className="py-1 px-4 m-2 font-semibold bg-gray-400 hover:bg-gray-100 transition duration-300"
         onClick={handleSubmit}
       >
         {submit}
