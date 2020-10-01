@@ -4,15 +4,22 @@ import type { Message, State } from './types/State'
 type Payload = Record<string, string>
 
 const initState: State = {
+  infoMessage: '',
   messages: [],
   nickname: '',
   userList: []
 }
 
 const handlers: Record<string, CallableFunction> = {
-  ADD_NICKNAME: (state: State, { nickname }: Payload): State => ({
+  LOGIN: (state: State, { nickname }: Payload): State => ({
     ...state,
     nickname
+  }),
+  LOGOUT: (state: State, { message }: Payload): State => ({
+    ...state,
+    nickname: '',
+    infoMessage: message,
+    userList: []
   }),
   RECEIVE_MESSAGE: (state: State, payload: Message): State => ({
     ...state,

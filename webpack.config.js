@@ -26,12 +26,11 @@ module.exports = {
     compress: true,
     contentBase: './dist/',
     port: port,
-    proxy: {
-      '/api': {
-        target: backend,
-        changeOrigin: true
-      }
-    }
+    proxy: [{
+      context: ['/api', '/socket'],
+      target: backend,
+      ws: true
+    }]
   },
   optimization: {
     minimize: true,
@@ -87,7 +86,7 @@ module.exports = {
       template: './public/index.html'
     }),
     new MiniCssExtractPlugin({
-      filename: 'style.css'
+      filename: 'css/style.css'
     })
   ].concat(NODE_ENV === 'development' ? [new HardSourceWebpackPlugin()] : []),
   resolve: {
