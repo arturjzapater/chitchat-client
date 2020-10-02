@@ -6,6 +6,7 @@ import { useHistory } from 'react-router-dom'
 import Message from './Message'
 import InputForm from '../InputForm/InputForm'
 import TypingInfo from './TypingInfo'
+import Leave from './Leave'
 
 const scrollToElementRef = ({ current }: React.MutableRefObject<HTMLDivElement | null>) => {
   current?.scrollIntoView({ behavior: 'smooth' })
@@ -28,7 +29,8 @@ const MessageBoard: React.FC = () => {
 
   return (
     <section className="flex-grow flex flex-col justify-between">
-      <div className="overflow-y-auto h-v-75">
+      <div className="overflow-y-auto h-v-75 flex flex-col">
+        <Leave fn={() => socket?.close()} />
         {messages.map((x: MsgType) => <Message key={`${x.user}-${x.timestamp}`} {...x} />)}
         <div ref={bottomRef} />
       </div>
