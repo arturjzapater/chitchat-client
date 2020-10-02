@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import InputForm from '../InputForm/InputForm'
-import { login, loginError } from './LoginActions'
+import { connect } from './LoginActions'
 import type { State } from '../../types/State'
 
 const Login: React.FC = () => {
@@ -11,18 +11,12 @@ const Login: React.FC = () => {
   const history = useHistory()
 
   const handleLogin = (nickname: string): void => {
-    dispatch(login(nickname))
+    dispatch(connect(nickname))
   }
 
   useEffect(() => {
     if (nickname !== '') {
-      fetch(`/api/users/${nickname}/exists`)
-        .then(res => res.json())
-        .then(({ exists }) => {
-          if (exists) dispatch(loginError('Failed to connect. Nickname already taken.'))
-          else history.push('/chatroom')
-        })
-        .catch(() => dispatch(loginError('Connection error.')))
+      history.push('/chatroom')
     }
   }, [nickname])
 
