@@ -11,14 +11,14 @@ import Home from '../features/Home/Home'
 const App: React.FC = () => (
   <>
     <Header />
-    <Router>
-      <Switch>
-        <main className="bg-gray-200 flex-grow">
+    <main className="bg-gray-200 flex-grow">
+      <Router>
+        <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/chatroom" component={Chatroom} />
-        </main>
-      </Switch>
-    </Router>
+        </Switch>
+      </Router>
+    </main>
   </>
 )
 
