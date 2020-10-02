@@ -10,7 +10,8 @@ import type { Message, State, UserItem } from '../../types/State'
 
 interface SocketInterface {
   socket: SocketIOClient.Socket,
-  sendMessage: CallableFunction
+  sendMessage: CallableFunction,
+  setIsTyping: CallableFunction
 }
 
 const useSocket = (onLogout: CallableFunction): SocketInterface | null => {
@@ -47,8 +48,11 @@ const useSocket = (onLogout: CallableFunction): SocketInterface | null => {
 
   return {
     socket,
-    sendMessage: (message: string):void => {
+    sendMessage: (message: string): void => {
       socket.emit('new message', message)
+    },
+    setIsTyping: (isTyping: boolean): void => {
+      socket.emit('user typing', isTyping)
     }
   }
 }

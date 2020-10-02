@@ -5,6 +5,7 @@ import type { Message as MsgType, State } from '../../types/State'
 import { useHistory } from 'react-router-dom'
 import Message from './Message'
 import InputForm from '../InputForm/InputForm'
+import TypingInfo from './TypingInfo'
 
 const scrollToElementRef = ({ current }: React.MutableRefObject<HTMLDivElement | null>) => {
   current?.scrollIntoView({ behavior: 'smooth' })
@@ -31,7 +32,10 @@ const MessageBoard: React.FC = () => {
         {messages.map((x: MsgType) => <Message key={`${x.user}-${x.timestamp}`} {...x} />)}
         <div ref={bottomRef} />
       </div>
+      <TypingInfo />
       <InputForm
+        onBlur={() => socket?.setIsTyping(false)}
+        onFocus={() => socket?.setIsTyping(true)}
         onSubmit={handeSendMessage}
         submit="Send"
       />
