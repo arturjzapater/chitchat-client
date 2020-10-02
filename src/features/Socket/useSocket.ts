@@ -1,11 +1,7 @@
 import io from 'socket.io-client'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import {
-  logout,
-  receiveMessage,
-  updateUserList
-} from './SocketActions'
+import { logout, receiveMessage, updateUserList } from './SocketActions'
 import type { Message, State, UserItem } from '../../types/State'
 
 interface SocketInterface {
@@ -24,17 +20,17 @@ const useSocket = (onLogout: CallableFunction): SocketInterface | null => {
 
     socket.emit('join', nickname)
 
-    // socket.on('nickname taken', () => {
-    //   dispatch(logout('Failed to connect, nickname already taken.'))
-    //   onLogout()
-    // })
-
     socket.on('new message', (payload: Message) => {
       dispatch(receiveMessage(payload))
     })
 
     socket.on('update userlist', (payload: UserItem[]) => {
       dispatch(updateUserList(payload))
+    })
+
+    socket.on('inactive', () => {
+      dispatch(logout('Disconnected due to inactivity.'))
+      onLogout()
     })
 
     setSocket(socket)
