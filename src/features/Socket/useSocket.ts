@@ -23,10 +23,10 @@ const useSocket = (onLogout: CallableFunction): SocketInterface | null => {
 
     socket.emit('join', nickname)
 
-    socket.on('nickname taken', () => {
-      dispatch(logout('Failed to connect, nickname already taken.'))
-      onLogout()
-    })
+    // socket.on('nickname taken', () => {
+    //   dispatch(logout('Failed to connect, nickname already taken.'))
+    //   onLogout()
+    // })
 
     socket.on('new message', (payload: Message) => {
       dispatch(receiveMessage(payload))

@@ -1,17 +1,30 @@
-import React from 'react'
-import { useDispatch } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import InputForm from '../InputForm/InputForm'
-import { addNickname } from './LoginActions'
+import { login, loginError } from './LoginActions'
+import type { State } from '../../types/State'
 
 const Login: React.FC = () => {
+  const nickname = useSelector((state: State) => state.nickname)
   const dispatch = useDispatch()
   const history = useHistory()
 
   const handleLogin = (nickname: string): void => {
-    dispatch(addNickname(nickname))
-    history.push('/chatroom')
+    dispatch(login(nickname))
   }
+
+  useEffect(() => {
+    if (nickname !== '') {
+      fetch(`/api/users/${nickname}/exists`)
+        .then(res => res.json())
+        .then(({ exists }) => {
+          if (exists) dispatch(loginError('Failed to connect. Nickname already taken.'))
+          else history.push('/chatroom')
+        })
+        .catch(() => dispatch(loginError('Connection error.')))
+    }
+  }, [nickname])
 
   return (
     <section>
