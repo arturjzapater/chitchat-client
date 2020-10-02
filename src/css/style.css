@@ -2,6 +2,14 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+body {
+  @apply bg-gray-800;
+}
+
+.bubble {
+  @apply bg-gray-300 text-gray-900 rounded-xl py-2 px-6 shadow;
+}
+
 .window {
   min-height: 100vh;
   @apply flex flex-col;

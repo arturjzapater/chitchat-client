@@ -37,7 +37,7 @@ const InputForm: React.FC<InputFormProps> = ({
   }
 
   return (
-    <form className={`flex ${className}`}>
+    <form className={`flex bubble ${className}`}>
       <div className="m-2 flex flex-grow">
         <input
           type="text"

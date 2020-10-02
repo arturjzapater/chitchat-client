@@ -11,6 +11,9 @@ module.exports = {
     extend: {
       height: {
         'v-75': '75vh'
+      },
+      borderRadius: {
+        xl: '1rem'
       }
     }
   }

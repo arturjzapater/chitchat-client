@@ -28,8 +28,8 @@ const MessageBoard: React.FC = () => {
   }
 
   return (
-    <section className="flex-grow flex flex-col justify-between">
-      <div className="overflow-y-auto h-v-75 flex flex-col">
+    <section className="flex-grow flex flex-col justify-between mx-8">
+      <div className="overflow-y-auto h-v-75 flex flex-col bubble">
         <Leave fn={() => socket?.close()} />
         {messages.map((x: MsgType) => <Message key={`${x.user}-${x.timestamp}`} {...x} />)}
         <div ref={bottomRef} />
