@@ -33,7 +33,9 @@ const handlers: Record<string, CallableFunction> = {
   default: (state: State): State => state
 }
 
-export default (state: State = initState, action: Action): State => {
+export default (state: State = initState, action?: Action): State => {
+  if (!action) return handlers.default(state)
+
   const handler = handlers[action.type] || handlers.default
   return handler(state, action.payload)
 }
