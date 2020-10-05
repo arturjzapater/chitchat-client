@@ -3,16 +3,12 @@ import type { Dispatch } from 'redux'
 
 export const login = (nickname: string): Action => ({
   type: 'LOGIN',
-  payload: {
-    nickname
-  }
+  payload: nickname
 })
 
 export const loginError = (message: string): Action => ({
   type: 'LOGOUT',
-  payload: {
-    message
-  }
+  payload: message
 })
 
 export const connect = (nickname: string) =>

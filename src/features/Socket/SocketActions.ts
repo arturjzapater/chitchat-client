@@ -3,9 +3,7 @@ import type { Message, UserItem } from '../../types/State'
 
 export const logout = (message: string): Action => ({
   type: 'LOGOUT',
-  payload: {
-    message
-  }
+  payload: message
 })
 
 export const receiveMessage = (payload: Message): MessageAction => ({

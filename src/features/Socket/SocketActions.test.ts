@@ -13,11 +13,9 @@ describe('Socket actions', () => {
 
     it('should set the message in the payload', () => {
       const { payload } = actions.logout('test message')
-      const expected = {
-        message: 'test message'
-      }
+      const expected = 'test message'
 
-      assert.deepStrictEqual(payload, expected)
+      assert.strictEqual(payload, expected)
     })
   })
 

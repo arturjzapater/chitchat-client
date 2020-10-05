@@ -19,9 +19,7 @@ describe('Reducer', () => {
   it('should handle LOGIN actions', () => {
     const result = reducer(undefined, {
       type: 'LOGIN',
-      payload: {
-        nickname: 'Nick'
-      }
+      payload: 'Nick'
     })
 
     const expected = {
@@ -56,9 +54,7 @@ describe('Reducer', () => {
     }
     const result = reducer(init, {
       type: 'LOGOUT',
-      payload: {
-        message: 'logout'
-      }
+      payload: 'logout'
     })
 
     assert.deepStrictEqual(result, {

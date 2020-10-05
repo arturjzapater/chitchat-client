@@ -12,9 +12,7 @@ describe('Login actions', () => {
 
     it('should set the nickname in the payload', () => {
       const { payload } = actions.login('nick')
-      const expected = {
-        nickname: 'nick'
-      }
+      const expected = 'nick'
 
       assert.deepStrictEqual(payload, expected)
     })
@@ -30,9 +28,7 @@ describe('Login actions', () => {
 
     it('should set the message in the payload', () => {
       const { payload } = actions.loginError('test error')
-      const expected = {
-        message: 'test error'
-      }
+      const expected = 'test error'
 
       assert.deepStrictEqual(payload, expected)
     })

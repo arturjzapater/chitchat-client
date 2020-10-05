@@ -1,8 +1,6 @@
 import type { Action } from './types/Action'
 import type { Message, State, UserItem } from './types/State'
 
-type Payload = Record<string, string>
-
 const initState: State = {
   infoMessage: '',
   messages: [],
@@ -11,13 +9,13 @@ const initState: State = {
 }
 
 const handlers: Record<string, CallableFunction> = {
-  LOGIN: (state: State, { nickname }: Payload): State => ({
+  LOGIN: (state: State, payload: string): State => ({
     ...state,
-    nickname
+    nickname: payload
   }),
-  LOGOUT: (state: State, { message }: Payload): State => ({
+  LOGOUT: (state: State, payload: string): State => ({
     ...state,
-    infoMessage: message,
+    infoMessage: payload,
     messages: [],
     nickname: '',
     userList: []
