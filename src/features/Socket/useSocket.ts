@@ -30,7 +30,14 @@ const useSocket = (onLogout: CallableFunction): SocketInterface | null => {
     })
 
     socket.on('inactive', () => {
+      socket.emit('inactive')
       dispatch(logout('Disconnected due to inactivity.'))
+      onLogout()
+    })
+
+    socket.on('disconnect', () => {
+      socket.emit('leave')
+      dispatch(logout('Disconnected from server'))
       onLogout()
     })
 
@@ -52,6 +59,7 @@ const useSocket = (onLogout: CallableFunction): SocketInterface | null => {
       socket.emit('user typing', isTyping)
     },
     close: (): void => {
+      socket.emit('leave')
       socket.close()
       dispatch(logout('Successfully logged out.'))
       onLogout()
