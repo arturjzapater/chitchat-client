@@ -28,8 +28,8 @@ const MessageBoard: React.FC = () => {
   }
 
   return (
-    <section className="flex-grow flex flex-col justify-between mx-8">
-      <div className="overflow-y-auto h-v-75 flex flex-col bubble">
+    <section className="flex-grow flex flex-col justify-between mx-2">
+      <div className="overflow-y-auto h-v-72 flex flex-col bubble p-2">
         <Leave fn={() => socket?.close()} />
         {messages.map((x: MsgType) => <Message key={`${x.user}-${x.timestamp}`} {...x} />)}
         <div ref={bottomRef} />
@@ -40,6 +40,7 @@ const MessageBoard: React.FC = () => {
         onFocus={() => socket?.setIsTyping(true)}
         onSubmit={handeSendMessage}
         submit="Send"
+        className="flex-col sm:flex-row"
       />
     </section>
   )

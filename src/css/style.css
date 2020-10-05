@@ -3,11 +3,21 @@
 @import "tailwindcss/utilities";
 
 body {
-  @apply bg-gray-800;
+  @apply bg-gray-300;
 }
 
 .bubble {
-  @apply bg-gray-300 text-gray-900 rounded-xl py-2 px-6 shadow;
+  @apply py-4 px-6;
+  @apply bg-gray-200 text-gray-900;
+  @apply rounded-xl;
+  @apply shadow;
+}
+
+.button {
+  @apply py-1 px-4;
+  @apply font-semibold;
+  @apply rounded;
+  @apply transition duration-300;
 }
 
 .window {

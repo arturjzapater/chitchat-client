@@ -11,7 +11,7 @@ import Home from '../features/Home/Home'
 const App: React.FC = () => (
   <>
     <Header />
-    <main className="flex-grow">
+    <main className="flex-grow mt-2">
       <Router>
         <Switch>
           <Route exact path="/" component={Home} />

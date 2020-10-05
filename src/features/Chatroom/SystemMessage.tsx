@@ -1,16 +1,14 @@
 import React from 'react'
+import MessageHeader from './MessageHeader'
+import type { MessageProps } from './MessageProps'
 
-interface SystemMessageProps {
-  user: string,
-  text: string,
-  timestamp: number
-}
-
-const SystemMessage: React.FC<SystemMessageProps> = ({ user, text, timestamp }) => (
-  <article className="italic text-sm">
-    <span>{new Date(timestamp).toUTCString()}</span>
-    <span className="font-semibold">&nbsp;{user}&nbsp;</span>
-    <span>{text}</span>
+const SystemMessage: React.FC<MessageProps> = ({ user, text, timestamp }) => (
+  <article>
+    <MessageHeader
+      text={text}
+      timestamp={timestamp}
+      user={user}
+    />
   </article>
 )
 

@@ -1,18 +1,14 @@
 import React from 'react'
+import MessageHeader from './MessageHeader'
+import type { MessageProps } from './MessageProps'
 
-interface UserMessageProps {
-  user: string,
-  text: string,
-  timestamp: number
-}
-
-const UserMessage: React.FC<UserMessageProps> = ({ user, text, timestamp }) => (
+const UserMessage: React.FC<MessageProps> = ({ user, text, timestamp }) => (
   <article>
-    <div className="italic text-sm">
-      <span>{new Date(timestamp).toUTCString()}</span>
-      <span className="font-semibold">&nbsp;{user}&nbsp;</span>
-      <span>said</span>
-    </div>
+    <MessageHeader
+      text="said"
+      timestamp={timestamp}
+      user={user}
+    />
     <p>{text}</p>
   </article>
 )

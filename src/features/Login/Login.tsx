@@ -21,12 +21,12 @@ const Login: React.FC = () => {
   }, [nickname])
 
   return (
-    <section>
-      <p>Please, input a nickname to connect</p>
+    <section className="m-2 my-4 sm:w-4/5 md:w-3/5 lg:1/2 sm:mx-auto">
       <InputForm
         onSubmit={handleLogin}
         submit="Connect"
         required={true}
+        className="flex-col"
       />
     </section>
   )

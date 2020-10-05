@@ -27,30 +27,30 @@ const InputForm: React.FC<InputFormProps> = ({
 
   const handleSubmit = (event: React.MouseEvent<HTMLButtonElement>): void => {
     event.preventDefault()
-    if (required) {
-      setError(input === '')
+    if (required && input === '') {
+      setError(true)
+      return
     }
-    if (!error) {
-      onSubmit(input)
-      setInput('')
-    }
+
+    onSubmit(input)
+    setInput('')
   }
 
   return (
     <form className={`flex bubble ${className}`}>
-      <div className="m-2 flex flex-grow">
+      <div className="m-2 flex flex-col flex-grow">
         <input
           type="text"
           value={input}
           onBlur={onBlur}
           onChange={handleChange}
           onFocus={onFocus}
-          className="flex-grow bg-gray-100 border border-gray-100 focus:border-gray-500 px-2 py-1"
+          className="flex-grow bg-gray-100 border border-gray-500 focus:border-gray-800 px-2 py-1"
         />
         {error && <span className="text-red-500 text-xs italic">Please, fill this field.</span>}
       </div>
       <button
-        className="py-1 px-4 m-2 font-semibold bg-gray-400 hover:bg-gray-100 transition duration-300"
+        className="button m-2 bg-gray-800 text-gray-100 hover:bg-gray-500 hover:text-gray-800"
         onClick={handleSubmit}
       >
         {submit}
