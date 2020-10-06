@@ -35,8 +35,7 @@ const MessageBoard: React.FC = () => {
         <div ref={bottomRef} />
       </div>
       <InputForm
-        onBlur={() => socket?.setIsTyping(false)}
-        onFocus={() => socket?.setIsTyping(true)}
+        onChange={() => socket?.setIsTyping()}
         onSubmit={handeSendMessage}
         submit="Send"
         className="flex-col sm:flex-row mt-3"

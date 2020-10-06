@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 interface InputFormProps {
   onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void | undefined,
-  onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void | undefined,
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void | undefined,
   onSubmit: CallableFunction,
   className?: string,
   submit: string,
@@ -12,7 +12,7 @@ interface InputFormProps {
 
 const InputForm: React.FC<InputFormProps> = ({
   onBlur,
-  onFocus,
+  onChange,
   onSubmit,
   className = '',
   submit,
@@ -25,6 +25,7 @@ const InputForm: React.FC<InputFormProps> = ({
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setInput(event.target.value)
     setError(false)
+    if (onChange) onChange(event)
   }
 
   const handleSubmit = (event: React.MouseEvent<HTMLButtonElement>): void => {
@@ -46,7 +47,6 @@ const InputForm: React.FC<InputFormProps> = ({
           value={input}
           onBlur={onBlur}
           onChange={handleChange}
-          onFocus={onFocus}
           className="flex-grow bg-gray-100 border border-gray-500 focus:border-gray-800 px-2 py-1"
         />
         {error && <span className="text-red-500 text-xs italic">Please, fill this field.</span>}

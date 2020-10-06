@@ -56,8 +56,8 @@ const useSocket = (onLogout: CallableFunction): SocketInterface | null => {
     sendMessage: (message: string): void => {
       socket.emit('new message', message)
     },
-    setIsTyping: (isTyping: boolean): void => {
-      socket.emit('user typing', isTyping)
+    setIsTyping: (): void => {
+      socket.emit('user typing')
     },
     close: (): void => {
       socket.emit('leave')
