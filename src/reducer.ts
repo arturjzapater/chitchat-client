@@ -1,5 +1,5 @@
-import type { Action } from '../types/Action'
-import type { Message, State, UserItem } from '../types/State'
+import type { Action } from './types/Action'
+import type { Message, State, UserItem } from './types/State'
 
 const initState: State = {
   infoMessage: '',

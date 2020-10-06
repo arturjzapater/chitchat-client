@@ -1,6 +1,6 @@
 import { assert } from 'chai'
 import reducer from './reducer'
-import type { Message, State } from '../types/State'
+import type { Message, State } from './types/State'
 
 const initState = {
   infoMessage: '',
