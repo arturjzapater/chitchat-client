@@ -14,6 +14,7 @@ interface SocketInterface {
 
 const useSocket = (onLogout: CallableFunction): SocketInterface | null => {
   const [socket, setSocket] = useState<SocketIOClient.Socket>()
+  const [lastTyping, setLastTyping] = useState(0)
   const nickname = useSelector((state: State) => state.nickname)
   const dispatch = useDispatch()
 
@@ -57,7 +58,11 @@ const useSocket = (onLogout: CallableFunction): SocketInterface | null => {
       socket.emit('new message', message)
     },
     setIsTyping: (): void => {
-      socket.emit('user typing')
+      const now = Date.now()
+      if ((now - lastTyping) > 1000) {
+        setLastTyping(now)
+        socket.emit('user typing')
+      }
     },
     close: (): void => {
       socket.emit('leave')
