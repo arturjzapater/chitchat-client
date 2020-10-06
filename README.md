@@ -1,10 +1,10 @@
 # ChitChat
 
-[Live version](https://chitchat-client.netlify.app)
+[Live version](https://chitchat-client.netlify.app) _Note that it may take a while for it to start working because the client and/or the server might be dormant_
 
 [Server repository](https://github.com/arturjzapater/chitchat-server)
 
-Chitchat is a simple chatting webapp. This client is written using [TypeScript](https://www.typescriptlang.org/), [Redux](https://redux.js.org/), [React](https://reactjs.org/) and [Socket.IO](https://socket.io/).
+Chitchat is a chatting webapp. This client is written using [TypeScript](https://www.typescriptlang.org/), [Redux](https://redux.js.org/), [React](https://reactjs.org/) and [Socket.IO](https://socket.io/).
 
 ## Install and Run
 
@@ -52,4 +52,5 @@ Most of the project's code is in the [src](src) folder, which contains the follo
 
 The application's [index](src/index.tsx), as well as its [store](src/store.ts) and [reducer](src/reducer.ts) are located at the root of the [src](src) folder.
 
-In addition, the [public](public) folder contains the html template and the [config](config) folder contains configuration files for webpack and babel.
+The [public](public) folder contains the html template.
+The [config](config) folder contains configuration files for webpack and babel. It also contains the file [server.js](config/server.js), which exports an object with the poperty `url`, which is the url where the server is deployed.
