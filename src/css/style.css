@@ -17,7 +17,12 @@ body {
   @apply py-1 px-4;
   @apply font-semibold;
   @apply rounded;
+  @apply outline-none;
   @apply transition duration-300;
+}
+
+.message {
+  @apply mb-2;
 }
 
 .window {

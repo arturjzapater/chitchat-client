@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { makeTypingMessage } from './helpers'
+import makeTypingMessage from '../../helpers/makeTypingMessage'
 import type { State } from '../../types/State'
 
 const TypingInfo: React.FC = () => {
@@ -8,8 +8,8 @@ const TypingInfo: React.FC = () => {
   const nickname = useSelector((state: State) => state.nickname)
 
   return (
-    <section className="h-8 mx-6">
-      <p className="italics text-sm">{makeTypingMessage(userList, nickname)}</p>
+    <section className="h-6 mx-6">
+      <p className="italic text-sm">{makeTypingMessage(userList, nickname)}</p>
     </section>
   )
 }

@@ -12,8 +12,8 @@ module.exports = {
   theme: {
     extend: {
       height: {
-        'v-72': '72vh',
-        'v-85': '85vh'
+        'v-70': '70vh',
+        'v-83': '83vh'
       },
       borderRadius: {
         xl: '1rem'

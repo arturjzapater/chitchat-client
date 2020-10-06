@@ -9,7 +9,9 @@ const UserMessage: React.FC<MessageProps> = ({ user, text, timestamp }) => (
       timestamp={timestamp}
       user={user}
     />
-    <p>{text}</p>
+    <p className="pl-4">
+      {text}
+    </p>
   </article>
 )
 

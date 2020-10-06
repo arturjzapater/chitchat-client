@@ -1,4 +1,4 @@
-import type { UserItem } from '../../types/State'
+import type { UserItem } from '../types/State'
 
 const messages: Record<number|string, CallableFunction> = {
   0: (): string => '',
@@ -8,7 +8,7 @@ const messages: Record<number|string, CallableFunction> = {
   default: (): string => 'Several people are typing...'
 }
 
-export const makeTypingMessage = (userlist: UserItem[], user: string): string => {
+const makeTypingMessage = (userlist: UserItem[], user: string): string => {
   const usersTyping = userlist
     .filter(({ nickname, isTyping }: UserItem) => isTyping && nickname !== user)
     .map(({ nickname }: UserItem) => nickname)
@@ -17,3 +17,5 @@ export const makeTypingMessage = (userlist: UserItem[], user: string): string =>
 
   return makeMessage(usersTyping)
 }
+
+export default makeTypingMessage
