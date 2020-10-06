@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import makeTypingMessage from '../../helpers/makeTypingMessage'
+import makeTypingMessage from '../../common/helpers/makeTypingMessage'
 import type { State } from '../../types/State'
 
 const TypingInfo: React.FC = () => {

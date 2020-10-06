@@ -1,5 +1,5 @@
 import React from 'react'
-import { formatTime } from '../../helpers/time'
+import { formatTime } from '../../common/helpers/time'
 import type { MessageProps } from './MessageProps'
 
 const MessageHeader: React.FC<MessageProps> = ({ text, timestamp, user }) => (

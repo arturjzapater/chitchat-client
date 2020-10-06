@@ -46,7 +46,7 @@ Most of the project's code is in the [src](src) folder, which contains the follo
 
 - [app](src/app): contains the application's main component([App](src/app/App.tsx)) as well as the [Header](src/app/Header.tsx) component.
 - [css](src/css): contains the application's stylesheet.
-- [features](src/features): contains the application's components and custom hooks organised by main component.
+- [features](src/features): contains the application's components organised by main component.
 - [helpers](src/helpers): contains helper functions.
 - [types](src/types): contains type declarations.
 
@@ -54,3 +54,4 @@ The application's [index](src/index.tsx), as well as its [store](src/store.ts) a
 
 The [public](public) folder contains the html template.
 The [config](config) folder contains configuration files for webpack and babel. It also contains the file [server.js](config/server.js), which exports an object with the poperty `url`, which is the url where the server is deployed.
+
