@@ -41,6 +41,7 @@ const MessageBoard: React.FC = () => {
         onSubmit={handeSendMessage}
         submit="Send"
         className="flex-col sm:flex-row"
+        id="new-msg-form"
       />
     </section>
   )

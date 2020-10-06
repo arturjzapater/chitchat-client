@@ -27,6 +27,7 @@ const Login: React.FC = () => {
         submit="Connect"
         required={true}
         className="flex-col"
+        id="login-form"
       />
     </section>
   )

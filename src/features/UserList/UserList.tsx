@@ -7,7 +7,7 @@ const UserList: React.FC = () => {
   const userList = useSelector((state: State) => state.userList)
 
   return (
-    <section className="mx-2 my-4 p-2 md:my-0 overflow-y-auto md:h-v-85 bubble">
+    <section className="mx-2 my-4 p-2 md:my-0 overflow-y-auto md:h-v-85 bubble" id="user-list">
       <h2 className="font-semibold text-center">
         Participants
       </h2>

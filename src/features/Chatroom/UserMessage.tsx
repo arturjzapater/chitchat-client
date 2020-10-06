@@ -3,7 +3,7 @@ import MessageHeader from './MessageHeader'
 import type { MessageProps } from './MessageProps'
 
 const UserMessage: React.FC<MessageProps> = ({ user, text, timestamp }) => (
-  <article>
+  <article className="message">
     <MessageHeader
       text="said"
       timestamp={timestamp}

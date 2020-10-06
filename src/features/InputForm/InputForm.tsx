@@ -6,7 +6,8 @@ interface InputFormProps {
   onSubmit: CallableFunction,
   className?: string,
   submit: string,
-  required?: boolean
+  required?: boolean,
+  id: string
 }
 
 const InputForm: React.FC<InputFormProps> = ({
@@ -15,7 +16,8 @@ const InputForm: React.FC<InputFormProps> = ({
   onSubmit,
   className = '',
   submit,
-  required = false
+  required = false,
+  id
 }) => {
   const [input, setInput] = useState('')
   const [error, setError] = useState(false)
@@ -37,7 +39,7 @@ const InputForm: React.FC<InputFormProps> = ({
   }
 
   return (
-    <form className={`flex bubble ${className}`}>
+    <form className={`flex bubble ${className}`} id={id}>
       <div className="m-2 flex flex-col flex-grow">
         <input
           type="text"

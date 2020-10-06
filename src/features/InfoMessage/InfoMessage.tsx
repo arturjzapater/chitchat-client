@@ -7,7 +7,7 @@ const InfoMessage: React.FC = () => {
 
   if (info === '') return null
   return (
-    <section className="bubble m-2 sm:w-4/5 md:w-3/5 lg:1/2 sm:mx-auto">
+    <section className="bubble m-2 sm:w-4/5 md:w-3/5 lg:1/2 sm:mx-auto" id="info-section">
       <p>{info}</p>
     </section>
   )
