@@ -8,6 +8,7 @@ const Leave: React.FC<LeaveProps> = ({ fn }) => (
   <button
     className="button self-end bg-red-500 text-gray-100 hover:bg-red-700"
     onClick={() => fn()}
+    id="leave-btn"
   >
     Leave
   </button>
