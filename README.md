@@ -1,8 +1,8 @@
 # ChitChat
 
-# ChitChat
-
 [Server repository](https://github.com/arturjzapater/chitchat-server)
+
+Chitchat is a simple chatting webapp. This client is written using [TypeScript](https://www.typescriptlang.org/), [Redux](https://redux.js.org/), [React](https://reactjs.org/) and [Socket.IO](https://socket.io/).
 
 ## Install and Run
 
