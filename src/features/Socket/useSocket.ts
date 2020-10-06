@@ -2,6 +2,7 @@ import io from 'socket.io-client'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { logout, receiveMessage, updateUserList } from './SocketActions'
+import { url } from '../../../config/server'
 import type { Message, State, UserItem } from '../../types/State'
 
 interface SocketInterface {
@@ -17,7 +18,7 @@ const useSocket = (onLogout: CallableFunction): SocketInterface | null => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    const socket = io('/socket')
+    const socket = io(`${url}socket`)
 
     socket.emit('join', nickname)
 

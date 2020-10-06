@@ -1,4 +1,5 @@
 import type { Dispatch } from 'redux'
+import { url } from '../../../config/server'
 import type { Action } from '../../types/Action'
 
 export const login = (nickname: string): Action => ({
@@ -13,7 +14,7 @@ export const loginError = (message: string): Action => ({
 
 export const connect = (nickname: string) =>
   (dispatch: Dispatch): void => {
-    fetch(`/api/users/${nickname}/exists`)
+    fetch(`${url}api/users/${nickname}/exists`)
       .then(res => res.json())
       .then(({ exists }) => {
         if (exists) dispatch(loginError('Failed to connect. Nickname already taken.'))
