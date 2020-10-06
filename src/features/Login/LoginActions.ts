@@ -1,5 +1,5 @@
-import type { Action } from '../../types/Action'
 import type { Dispatch } from 'redux'
+import type { Action } from '../../types/Action'
 
 export const login = (nickname: string): Action => ({
   type: 'LOGIN',

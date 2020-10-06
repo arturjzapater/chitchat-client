@@ -5,6 +5,8 @@ module.exports = {
   },
   purge: [
     './src/**/*.js',
+    './src/**/*.ts',
+    './src/**/*.tsx',
     './src/**/*.css'
   ],
   theme: {

@@ -5,9 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "webpack",
-    "test": "mocha --require esm --require ts-node/register --reporter list",
-    "e2e": ""
+    "build": "rm -rf dist && NODE_ENV=production webpack",
+    "test": "mocha --require esm --require ts-node/register --reporter list"
   },
   "keywords": [
     "chat",
