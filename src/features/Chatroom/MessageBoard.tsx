@@ -5,7 +5,7 @@ import InputForm from '../InputForm/InputForm'
 import Leave from './Leave'
 import Message from './Message'
 import TypingInfo from './TypingInfo'
-import useSocket from '../Socket/useSocket'
+import useSocket from '../../common/Socket/useSocket'
 import type { Message as MsgType, State } from '../../types/State'
 
 const scrollToElementRef = ({ current }: React.MutableRefObject<HTMLDivElement | null>) => {
