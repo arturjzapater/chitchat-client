@@ -2,7 +2,7 @@ import io from 'socket.io-client'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { logout, receiveMessage, updateUserList } from './SocketActions'
-import { url } from '../../../config/server'
+import { server, debounceTiming } from '../../../config/prod'
 import type { Message, State, UserItem } from '../../types/State'
 
 interface SocketInterface {
@@ -19,7 +19,7 @@ const useSocket = (onLogout: CallableFunction): SocketInterface | null => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    const socket = io(`${url}socket`)
+    const socket = io(`${server}socket`)
 
     socket.emit('join', nickname)
 
@@ -59,7 +59,7 @@ const useSocket = (onLogout: CallableFunction): SocketInterface | null => {
     },
     setIsTyping: (): void => {
       const now = Date.now()
-      if ((now - lastTyping) > 1000) {
+      if ((now - lastTyping) > debounceTiming) {
         setLastTyping(now)
         socket.emit('user typing')
       }

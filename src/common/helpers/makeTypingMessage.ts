@@ -1,4 +1,4 @@
-import type { UserItem } from '../types/State'
+import type { UserItem } from '../../types/State'
 
 const messages: Record<number|string, CallableFunction> = {
   0: (): string => '',

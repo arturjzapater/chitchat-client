@@ -25,7 +25,7 @@ const UserList: React.FC = () => {
         Participants
         </h2>
         <button
-          className="button bg-gray-500 text-gray-100 md:hidden"
+          className="button bg-gray-500 text-gray-100 md:hidden hover:bg-gray-400"
           onClick={() => changeDisplay(!display)}
         >
           {btnText}
