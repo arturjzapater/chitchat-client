@@ -29,10 +29,12 @@ const MessageBoard: React.FC = () => {
 
   return (
     <section className="flex-grow flex flex-col justify-between mx-2">
-      <div className="overflow-y-auto h-v-70 flex flex-col bubble p-2">
+      <div className="flex flex-col bubble">
         <Leave onClick={() => socket?.close()} />
-        {messages.map((x: MsgType) => <Message key={`${x.user}-${x.timestamp}`} {...x} />)}
-        <div ref={bottomRef} />
+        <div className="overflow-y-auto h-v-60">
+          {messages.map((x: MsgType) => <Message key={`${x.user}-${x.timestamp}`} {...x} />)}
+          <div ref={bottomRef} />
+        </div>
       </div>
       <InputForm
         onChange={() => socket?.setIsTyping()}

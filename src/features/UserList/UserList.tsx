@@ -18,7 +18,7 @@ const UserList: React.FC = () => {
   return (
     <section
       id="user-list"
-      className="mx-2 my-4 p-2 overflow-y-auto order-first bubble md:my-0 md:h-v-83 md:order-last"
+      className="mx-2 my-4 overflow-y-auto order-first bubble md:my-0 md:h-v-84 md:order-last"
     >
       <header className="flex justify-between md:justify-center">
         <h2 className="font-semibold text-center">
