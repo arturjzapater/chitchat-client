@@ -1,6 +1,6 @@
 # ChitChat
 
-[Live version](https://chitchat-client.netlify.app) _Note that it may take a while for it to start working because the client and/or the server might be dormant_
+[Live version](https://chitchat-client.netlify.app) _Note that it may take a while for it to start working because the app might be dormant_
 
 [Server repository](https://github.com/arturjzapater/chitchat-server)
 
@@ -38,7 +38,7 @@ To run unit tests, use:
 npm t
 ```
 
-The end-to-end tests are located in the [server repository](https://github.com/arturjzapater/chitchat-server). See [instructions there](https://github.com/arturjzapater/chitchat-server#test) to run them.
+The end-to-end tests are located in the server repository. See the [instructions here](https://github.com/arturjzapater/chitchat-server#test) to run them.
 
 ## Project Structure
 
@@ -53,7 +53,7 @@ Most of the project's code is in the [src](src) folder, which contains the follo
 The application's [index](src/index.tsx), as well as its [store](src/store.ts) and [reducer](src/reducer.ts) are located at the root of the [src](src) folder.
 
 The [public](public) folder contains the html template.
-The [config](config) folder contains configuration files for webpack and babel. It also contains the file [prod.js](config/prod.js), which exports an object with the following poperties:
+The [config](config) folder contains configuration files for webpack and babel. It also contains the file [app.js](config/app.js), which exports an object with the following poperties:
 - `debounceTiming`, which sets the number of milliseconds that the socket connection should wait after sending `user typing` event before it sends a new one.
 - `server`, which is the url where the server is deployed.
 

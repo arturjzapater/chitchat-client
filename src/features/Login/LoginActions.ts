@@ -1,5 +1,5 @@
 import type { Dispatch } from 'redux'
-import { server } from '../../../config/prod'
+import { server } from '../../../config/app'
 import type { Action } from '../../types/Action'
 
 export const login = (nickname: string): Action => ({

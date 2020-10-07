@@ -2,7 +2,7 @@ import io from 'socket.io-client'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { logout, receiveMessage, updateUserList } from './SocketActions'
-import { server, debounceTiming } from '../../../config/prod'
+import { server, debounceTiming } from '../../../config/app'
 import type { Message, State, UserItem } from '../../types/State'
 
 interface SocketInterface {
