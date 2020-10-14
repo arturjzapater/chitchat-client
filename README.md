@@ -64,3 +64,7 @@ Following [Redux's recommendation](https://redux.js.org/style-guide/style-guide#
 ## Considerations on Sockets
 
 I created the custom hook [`useSocket`](src/common/Socket/useSocket.ts) to handle the logic pertaining to the socket connection. The hook returns a reference to the socket itself and the methods necessary to communicate with the server. The goal was to have all the logic pertaining to the socket connection in one place, so that it would be easy to maintain and integrate with new parts of the application if it grows to be more complex.
+
+## Screenshots
+
+![ChitChat's chatroom page](view.png)
