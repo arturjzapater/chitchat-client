@@ -4,15 +4,15 @@ import * as actions from './LoginActions'
 describe('Login actions', () => {
   describe('login', () => {
     it('should create a LOGIN action', () => {
-      const result = actions.login('nickname')
+      const result = actions.login('nickname', '')
 
       assert.hasAllKeys(result, ['type', 'payload'])
       assert.strictEqual(result.type, 'LOGIN')
     })
 
     it('should set the nickname in the payload', () => {
-      const { payload } = actions.login('nick')
-      const expected = 'nick'
+      const { payload } = actions.login('nick', 'asdf')
+      const expected = { nickname: 'nick', token: 'asdf' }
 
       assert.deepStrictEqual(payload, expected)
     })

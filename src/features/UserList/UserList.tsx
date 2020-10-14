@@ -32,7 +32,7 @@ const UserList: React.FC = () => {
         </button>
       </header>
       <ul className={`${visibility} flex-wrap mt-2 md:flex md:flex-col md:flex-no-wrap list-none`}>
-        {userList.map(x => <UserItem key={x.id} {...x} />)}
+        {userList.map(x => <UserItem key={x.userId} {...x} />)}
       </ul>
     </section>
   )

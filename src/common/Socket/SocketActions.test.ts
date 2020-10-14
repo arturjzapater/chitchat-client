@@ -42,12 +42,12 @@ describe('Socket actions', () => {
 
   describe('updateUserList', () => {
     const userlist = [{
-      id: '12',
+      userId: '12',
       nickname: 'test',
       isTyping: false,
       joined: 12
     }, {
-      id: '13',
+      userId: '13',
       nickname: 'test-b',
       isTyping: false,
       joined: 127

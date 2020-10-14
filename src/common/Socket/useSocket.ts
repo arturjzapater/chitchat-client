@@ -15,13 +15,11 @@ interface SocketInterface {
 const useSocket = (onLogout: CallableFunction): SocketInterface | null => {
   const [socket, setSocket] = useState<SocketIOClient.Socket>()
   const [lastTyping, setLastTyping] = useState(0)
-  const nickname = useSelector((state: State) => state.nickname)
+  const token = useSelector((state: State) => state.token)
   const dispatch = useDispatch()
 
   useEffect(() => {
-    const socket = io(`${server}socket`)
-
-    socket.emit('join', nickname)
+    const socket = io(`${server}socket`, { query: { token } })
 
     socket.on('new message', (payload: Message) => {
       dispatch(receiveMessage(payload))

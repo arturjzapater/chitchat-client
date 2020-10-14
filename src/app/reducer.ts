@@ -1,24 +1,27 @@
-import type { Action } from '../types/Action'
+import type { Action, LoginPayload } from '../types/Action'
 import type { Message, State, UserItem } from '../types/State'
 
 const initState: State = {
   infoMessage: '',
   messages: [],
   nickname: '',
-  userList: []
+  userList: [],
+  token: ''
 }
 
 const handlers: Record<string, CallableFunction> = {
-  LOGIN: (state: State, payload: string): State => ({
+  LOGIN: (state: State, { nickname, token }: LoginPayload): State => ({
     ...state,
-    nickname: payload
+    nickname,
+    token
   }),
   LOGOUT: (state: State, payload: string): State => ({
     ...state,
     infoMessage: payload,
     messages: [],
     nickname: '',
-    userList: []
+    userList: [],
+    token: ''
   }),
   UPDATE_USERLIST: (state: State, payload: UserItem[]): State => ({
     ...state,

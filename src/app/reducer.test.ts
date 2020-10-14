@@ -6,7 +6,8 @@ const initState = {
   infoMessage: '',
   messages: [],
   nickname: '',
-  userList: []
+  userList: [],
+  token: ''
 }
 
 describe('Reducer', () => {
@@ -19,12 +20,16 @@ describe('Reducer', () => {
   it('should handle LOGIN actions', () => {
     const result = reducer(undefined, {
       type: 'LOGIN',
-      payload: 'Nick'
+      payload: {
+        nickname: 'Nick',
+        token: 'asdf'
+      }
     })
 
     const expected = {
       ...initState,
-      nickname: 'Nick'
+      nickname: 'Nick',
+      token: 'asdf'
     }
 
     assert.deepStrictEqual(result, expected)
@@ -41,16 +46,17 @@ describe('Reducer', () => {
       }],
       nickname: 'Nick',
       userList: [{
-        id: '12',
+        userId: '12',
         nickname: 'test',
         isTyping: false,
         joined: 12
       }, {
-        id: '13',
+        userId: '13',
         nickname: 'test-b',
         isTyping: false,
         joined: 127
-      }]
+      }],
+      token: ''
     }
     const result = reducer(init, {
       type: 'LOGOUT',
@@ -65,7 +71,7 @@ describe('Reducer', () => {
 
   it('should handle UPDATE_USERLIST actions', () => {
     const userList = [{
-      id: '13',
+      userId: '13',
       nickname: 'test-b',
       isTyping: false,
       joined: 127
