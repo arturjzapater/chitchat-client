@@ -7,7 +7,9 @@ interface InputFormProps {
   className?: string,
   submit: string,
   required?: boolean,
-  id: string
+  id: string,
+  label?: string,
+  placeholder?: string
 }
 
 const InputForm: React.FC<InputFormProps> = ({
@@ -17,7 +19,9 @@ const InputForm: React.FC<InputFormProps> = ({
   className = '',
   submit,
   required = false,
-  id
+  id,
+  label = '',
+  placeholder = ''
 }) => {
   const [input, setInput] = useState('')
   const [error, setError] = useState(false)
@@ -42,12 +46,15 @@ const InputForm: React.FC<InputFormProps> = ({
   return (
     <form className={`flex bubble ${className}`} id={id}>
       <div className="m-2 flex flex-col flex-grow">
+        <label htmlFor={`${id}-input`}>{label}</label>
         <input
           type="text"
           value={input}
           onBlur={onBlur}
           onChange={handleChange}
           className="flex-grow bg-gray-100 border border-gray-500 focus:border-gray-800 px-2 py-1"
+          placeholder={placeholder}
+          id={`${id}-input`}
         />
         {error && <span className="text-red-500 text-xs italic">Please, fill this field.</span>}
       </div>

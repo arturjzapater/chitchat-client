@@ -28,6 +28,8 @@ const Login: React.FC = () => {
         required={true}
         className="flex-col"
         id="login-form"
+        label="Choose a nickname:"
+        placeholder="Nickname"
       />
     </section>
   )
